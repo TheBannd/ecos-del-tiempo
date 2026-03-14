@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>{{ object.title }}</h2>
+
+<h4>{{ object.subtitle }}</h4>
+
+<img src="{{ object.image.url }}" width="400">
+
+<p>{{ object.content|safe }}</p>
+
+<p>{{ object.created }}</p>
+
+<p>Autor: {{ page.author.username }}</p>
+<p>Creado: {{ page.created }}</p>
+
+{% endblock %}

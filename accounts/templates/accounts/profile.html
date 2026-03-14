@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>Perfil</h2>
+
+<p><b>Usuario:</b> {{ user.username }}</p>
+<p><b>Email:</b> {{ user.email }}</p>
+<p><b>Nombre:</b> {{ user.first_name }}</p>
+<p><b>Apellido:</b> {{ user.last_name }}</p>
+
+{% if user.profile.avatar %}
+<img src="{{ user.profile.avatar.url }}" width="150">
+{% endif %}
+
+<p>{{ user.profile.bio }}</p>
+
+<br>
+
+<a href="/accounts/profile/edit/">Editar perfil</a>
+
+{% endblock %}
+
+{% if user.is_authenticated %}
+<a href="/messages/send/{{ user.id }}/">
+Enviar mensaje
+</a>
+{% endif %}

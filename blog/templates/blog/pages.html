@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+{% block contenido %}
+
+<h2>Ecos del Tiempo</h2>
+
+{% if ecos %}
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+
+{% for eco in ecos %}
+
+<div style="width:300px; border:1px solid #ccc; padding:15px; border-radius:10px;">
+
+{% if eco.imagen %}
+<img src="{{ eco.imagen.url }}" style="width:100%; border-radius:8px;">
+{% endif %}
+
+<h3>{{ eco.titulo }}</h3>
+
+<p>{{ eco.subtitulo }}</p>
+
+<a href="/pages/{{ eco.slug }}/">Leer más</a>
+
+<a href="/pages/create/">Crear nuevo Eco</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<p>No hay páginas aún.</p>
+
+{% endif %}
+
+{% endblock %}

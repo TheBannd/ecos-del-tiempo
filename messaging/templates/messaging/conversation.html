@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>Conversación con {{ other_user.username }}</h2>
+
+{% for message in messages %}
+
+<div>
+
+<b>{{ message.sender.username }}</b>
+
+<p>{{ message.content }}</p>
+
+<small>{{ message.date }}</small>
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+<form method="post" action="/messages/send/{{ other_user.id }}/">
+{% csrf_token %}
+
+<textarea name="content"></textarea>
+
+<br>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+{% endblock %}

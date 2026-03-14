@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>Bandeja de entrada</h2>
+
+{% if messages %}
+
+{% for message in messages %}
+
+<div>
+
+<b>{{ message.sender.username }}</b>:
+{{ message.content|truncatewords:6 }}
+
+<br>
+
+<a href="/messages/conversation/{{ message.sender.id }}/">
+Ver conversación
+</a>
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+{% else %}
+
+<p>No tienes mensajes.</p>
+
+{% endif %}
+
+{% endblock %}

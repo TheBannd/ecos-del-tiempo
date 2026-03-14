@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>Editar perfil</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Nombre</label>
+    <input type="text" name="first_name" value="{{ user.first_name }}">
+
+    <label>Apellido</label>
+    <input type="text" name="last_name" value="{{ user.last_name }}">
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ user.email }}">
+
+    <label>Biografía</label>
+    <textarea name="bio">{{ user.profile.bio }}</textarea>
+
+    <label>Avatar</label>
+    <input type="file" name="avatar">
+
+    <button type="submit">Guardar</button>
+
+</form>
+
+{% endblock %}

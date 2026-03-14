@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<div class="form-container">
+
+    <h2>Crear un nuevo eco</h2>
+    <p class="form-subtitle">Deja una huella en el archivo del tiempo.</p>
+
+    <form method="post" class="eco-form">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn-guardar">
+            Guardar eco
+        </button>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<h2>¿Seguro que quieres borrar este Eco?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+</form>
+
+{% endblock %}
